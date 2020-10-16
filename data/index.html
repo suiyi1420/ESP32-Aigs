@@ -1,0 +1,608 @@
+
+<html dir="ltr" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!-- Favicon icon -->
+    <title>Fallwings智能插排-设备详情</title>
+
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet"/>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING:Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        body {
+            min-height: 100vh
+        }
+        #qiwen_state.on,#qiwen_control.on{background:#fc4b6c !important;}
+        #guangzhao_state.on,#guangzhao_control.on{background:#ffb22b!important}
+        #shidu_state.on,#shidu_control.on{background:#1e88e5!important}
+        #shuiwen_state.on,#shuiwen_control.on{background:#7460ee!important}
+        #weishi_control.on{background:#28a745!important}
+        .control,.state{background:#6c757d;}#prg{margin-top:20px;}
+
+    </style>
+</head>
+<body>
+
+<div id="preloader" class="preloader" style="display: none;">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+<div id="preloader2" class="preloader" style="display: none;">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="mini-sidebar"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full" class="show-sidebar">
+    <header class="topbar" data-navbarbg="skin6">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <div class="navbar-header" data-logobg="skin6">
+                <a class="nav-toggler waves-effect waves-light d-block" style="font-size:25px;" href="javascript:;">
+                    
+                </a>
+                <a class="navbar-brand" href="javascript:;">
+                    <b class="logo-icon">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF62lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMC0wMi0xOFQxMDozNToyMSswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjAtMDgtMjBUMTc6MTk6MjArMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjAtMDgtMjBUMTc6MTk6MjArMDg6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzEwZGI4NGItM2FiMi0wZDRlLWE3NjUtZGJhZjJjNmFhN2IyIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTljNjZiYzctZDRkOS1hZDQxLThlMTItNjI1N2E5NjQyMzcxIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6ZWVjNGI1YTEtMjRlZi02ZjRlLTk4YzQtODg4ZTQyZTJhNmZiIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDplZWM0YjVhMS0yNGVmLTZmNGUtOThjNC04ODhlNDJlMmE2ZmIiIHN0RXZ0OndoZW49IjIwMjAtMDItMThUMTA6MzU6MjErMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjMxMGRiODRiLTNhYjItMGQ0ZS1hNzY1LWRiYWYyYzZhYTdiMiIgc3RFdnQ6d2hlbj0iMjAyMC0wOC0yMFQxNzoxOToyMCswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz49odDTAAANUUlEQVRYhX1YeYxd1X3+zrnn7ve+bd5s783usWfswQsYYxYbDGmBkhKi0ISqpVLtklRApZCmi9KqjVqqtipR1KQtbQOlpiGAVOTSsNTs2LhewBh78OAZz9izL377fcvdl/7xPIOtJP1JT3pXejrvO7/z/b7vO5fk83l88MEHqFarEAQBV5YoCKiZzsPj58bOVSul9yNCIUsS0uk0ACCZTMBxXABAEAQQBAFtbW0ghMD3fRiGgc7OTsRjMbx/6BAWFhbQ1dWFbdu2AQAYYzBNE7Isg4ZhCJ7nwRgDAFBKQSkFoRSaKuOzqem9F5aKr0RRiGI+D8uyEIYhZEkEzxg8z0MQBGufKysMQyiyBE1TedM0U9VaDY7jgBACQshVv6VRFIExBlmWQQgBpRQcx4FxHAilcB1XW8yVNEFNfr+zvRVRFCH0XQSEfX1qbnm/77mwLAuNRgOFQgG+74NSiiiKkErEkC9Vdr306luj6zcMZe++604MDw8DAHzfXwNBCAFbfYiiCLVaDUEQNMFQgkrFyOaL5Y2qKOBSxfpWuy69nJCiw22d2eGDH3z8I02WEOtr21cul0NRFBGPxxEEAQiAdCqBmYWV3/3p2+/+i2Va2DTYa6YSMUiyAtM0IQo8WpJxIIogiKK4BiQMQ+i6jnK5DM/zQAUeNdO8oWHZUBUJRrUKgYs9v2HL+gdGz88+XypVILa3wgujrTzjPtF1HYlEAhwlSLckcersxPcPvn/sW67rIR7TQIBQYBQiz8DpKllazt10fmZpj+vY/TKPb68B8X0fuq5D0zSUy2V0tKVxamzqq9VqDYm4DkkgqJlW9uS52SPFYgktSR2O58F2gnsZ4z6RJAmaIoPn+bY3Dn/00vGTp3eLIo+EriEIQjhe8MBywcjNLozflyuWr51bXOlu2C4G2vWHnHqlyuLxOKepSmA26uAoB1lVkMvl4AcBVnKFmyNEa+cYRRFWLuUgigIopajWTdRM+572uPiXcU0Fx4TrX3n76OszC8utqYQOnjGEUQSecnjj0LG/qTVM2LYDjlLwooiRgexBOLV/CwQJ7MMPT6iTF+e/i8h/vbe35x2e51FOxJErlHrzpXKPLIlNKFEEQghkSVzjFM9R1G135zWD3epSvnT76NEzr5TKFbS2JJrHHTW3EQQBQs+DLArQFBmW7SARjyEdlx+slB3E4wK47mzGmVvK/dr/nvrsB4VS+W6esdj2rZuPz8wv3nj81NnfkkURjOOai14Gs1qMMViWDcpLvz42NfNotVpDTFev6qDn+9AUBbhiZAnlkFLYn1q1ypu8ICKdToO7bc8edKaTr5hu8Ojh46eGpmZm78oXKg8s54t7CsVyJ0cpNFXxuzIdRr5YkjmOu2r+OY5icno2GYYhEjEdYRiuCZppORgZWjfdmk6FC8srCsdxMC0bXZ2tk7fu2Pw1PRYDxzEkk0lwt9xyCzzXRntby3E/ons9x8Xk9FxroVjqjGkqQAjqDQvZttRrAs9zxUo1zdjnYGzHRU82E6SSca9QKjOe52FaNhzXxR237HhVFEXz49NnBxjHsaa+hCCU2plMtkuSpHLge4siz4O74447EIQRNEmco4zdupgr9bckYhAEHlEUXZ6ogAiMW0rFtSNLufLNorA2bGiYFjYO9p/TVLkwO7/UbjseEnEtv3vH1r8tG9WeU5+O30kpZTzPAwAEnke9YcVGz03edGFu8euLudJj8ViM0WZ7ORi1GjpaYt9oS6fQMK2ruMAzhqJRvz0R005k21smLbvpLwSAKIpwHOvkzNwCXzNtbBzse+9Xbtv5tcWV/PaPznx2D+MoBP7zTa3aAyVAvljGxqGhGiUYo4wxMMZAKAee4ML63syPI0IRhuHnPkAJGpbDdF1HT6btadv1QAiB5wdIxfVCEAT2SqEyfNetN3xv147N+458fPavzpyb+nJMU9fkfpXAQRgiX6pA19Toq1/8wp/se+BLPS0J/WXGcRwopZAkCbbrIduaeKgn037/zPyiEtPUtUnxfQ8Xpue3ZTrSr2uKjDAM4QYBNFk4pCqK95UvfuG7ModXDhw8dCRXKGfb0kmDEsp7vq+srlE3LVDK4dqRDe9eu3Hw0Uxn23iuWIJp2WCKosB1Xfi+D9f1UCkV3Uw6/p35pUs/CKMIZK0rFHXL+WVVlvYrsugbRo1FADYM9B0c7M0+nc10YClfvu/6LZuerRgGB0Kvp5QbdP0gc+bsOd5xPWQ62rGuu/WPhvq6nuBFAblCCVos0TS9zs5OuK6LlZUVqKoKx3HQ3aL/0Bwe+I3TY+d36qpymQ8RQpAdnR0dakydOja7mNs92N32lpFfenqBJ8LY5PQjdcvZVDFqO41avdv1/GQURQjDMOJ5HhvX9x/sTKq/H/jOuZV8EZ2ZDFRVbWYRSsGiKFrLI63pNHp7u3H+wszOaq0hU0o/Fy+OoVY3YVmWI4qC1d/dkd/Y13bnyqX88Nm5M6fqliu7jg1RECAKPCht8sxyXHLfXbc/uam/89EzY+dQdV2kYzGYjQbKpRIURYHv++Duv/9++L4Pz7GRyXTg0/GL//DaO0d+lC+W2+O6tkY0xjPk80V0tKVfXz/QM94o5/4slUomqz4/WapUed91AULBMQ48Y1jdBM8YjFo9VW9Ysc0jw4d910WqJQ3DMDA1NYWlpSU4jgNGSDM71Or1Xf/z/of/dHpsYgtHKRhHUa3VIQg8eMbgWC40TcVNN+7kfbv+wvJcEtu3Xy9eB4xIopi/ODPXVaoYm0+e+ezbCyuFLbLU7EwUAfOLy+suzi48fqlYuX+oP/PNZEw7XCwWAELWEh558cUXB6dml/7449HxhwqlEgZ6s2ZcVz+JxeJWpWKkimXjumLZQMOysX3L8OLIQHbTwvxcVYmlftMDd4NtmiEIoalEfElTpPMiTxfKNev2Nw8d/2uOUk66bJJhGKJSrSOVjGP75uFn0gnth5VS8QxIs3PkqWf2/91P3zz8h5VqDRzHYV1vFh0tiX9fN9A/qsrCeOh7dr5c3frp+ZnH4hJ5+NL89MF0R/bGZcM7Nj07D1WWmuobBOB5Hm3pZPnG6675juN46w+f+OQRSoi8agmUElSMOgjH8JW7d+9NxbT9lu00gfzkJ89xAOlZWsnfVigbdxYqtS/limXVMk2kU0mosvjG9q2bDm7asO6Z/zpwoMp4Xi3ZdHlpJafrqozwMoeu9J5avYE9N19/hFJO/fjM2DaeZ2RVzDiORcN9HXu50HvW8fw1BWeeHwSSIEwPDfZOdzca+33Pw+mJ6R9/OjH9oFGrYaVo3MVRqs2c/+zvAaI1AuHo0qVlXVWknwEBAJLY5MZHp8d2bVjXZ8Z0DabVtAxyWY/CIOAX52bQcLw1+WeB7yNfrWJmZgaLC/PQNF1pQLovCEKA47C+t2Pcrxd2jWy/FZKW+KWXXn2rmxAC23GhyNJVVrBaqwFq6uKssprmmp5GYZkmWSiKT3V1903Oz148RCgFIQTc3r17IUkSKKVYP7gOIVOeml/K3aDIUpROJorUqd440N9f37L1Wlyz+Zqhwb7sa8R3DlVNZ1fZqEqyKGC1L1d6CiGk6WGXvzuOC9O0EEYhLuWLCAn77dak9qRRqZhBEIKcOHECiqJAFEUwxjBxfnIwn8s5Lek0JifGq2ajbtzzq/f2/Ov+F14vGbURQRCQ1KR/HFrXN37s1NhjRcMYVCQRiIAQQL1hgqMUqiJf5bjplhaPUsrXG3UgAhwvQF+27ZOUym7zg7DGbNuGaZprfkIJptItScR0FXpMh2VZGB0dtS4VyyOLy5fQ19OFs1O533O84OTIUP/bR09+mgkjKPV6A8PrB+YHejLvnjh19sHlfIGTRBGKJKJWb2DLxsGXvvnIN/4ilUqhWq2BYxyZOD/Z9fabb6IlrYPbt2/f2jWT4zjYtg3TskA5DkEQYGJiAo2aYXoh9giC1Lf72g1DvCgNf3hmfHdbOtWWSsSDpZWcxjEeKV36z23Dfb/T09X5H+lUsu55/sZ8qaw2bAdR6FcDq/pEV1dXMZlKFQWeLziWdfHd9951fT9ocuRKkjmOs5Y75+bmYNs2AKArm3EFGr02PTXxTlem4y1OkP7g4txiPAwDzfN8aJqCpMIenpyaWozFYpXrtmx6j6fhP/d1ZxcBusNy/I0iw3PHjh4ta7qObDaLXD6P0dFRyLL8+ZXzyqKUwvd9lEqlZgh2PfT36y/UjTImjTqUpYWVddnuL1u2+3KhWAbjeaQT+mQiJn24UKui3mig2rBQb5j1zSMbn2xPJZ5dKRmP6IqcMSqlCwcOHIAsy0ilUms6Qn8ekNUgs5ozOY7C9TyEESCKAuqWjcLywn8Pdrc+LskKAAKJp8816nUAgOM4iKIIlFKUq3XUG41GV3vLE77nfLA6SbOzs02P+f+A/KJafYWRiCdgewEEeH/em2mbYoyhI516Xo/Fkc1mwRiDYRgQBAEEQATAsp21P+V5HrIsX7X2zz2aX9Sl1ezSHHUeFaOKRCxxb2J44PFGvTa1eomqVqsAAF3Xf+Y9yC+q/wPVpILeE79ybgAAAABJRU5ErkJggg==" class="dark-logo">
+                        <img src="" class="light-logo">
+                    </b>
+                    <span class="logo-text">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAAATCAYAAAB2iSS0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAGx2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTBDQUZCRTYzQTE5MTFFN0EzQ0JGMjJBQkFCQkQyODEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OGJiMWVjZjUtOThmMi0yZjQ0LTk2MmYtNGJjMzczOGUzMGUxIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OTBDQUZCRTYzQTE5MTFFN0EzQ0JGMjJBQkFCQkQyODEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMC0wOC0yMFQxNDoyMDozMyswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjAtMDgtMjFUMDk6MDg6NDYrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjAtMDgtMjFUMDk6MDg6NDYrMDg6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDMTBDOTIyQjA4QTkxMUU3OUExREUwQzlGN0IwNjYwNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDMTBDOTIyQzA4QTkxMUU3OUExREUwQzlGN0IwNjYwNiIvPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo4YmIxZWNmNS05OGYyLTJmNDQtOTYyZi00YmMzNzM4ZTMwZTEiIHN0RXZ0OndoZW49IjIwMjAtMDgtMjFUMDk6MDg6NDYrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDxwaG90b3Nob3A6VGV4dExheWVycz4gPHJkZjpCYWc+IDxyZGY6bGkgcGhvdG9zaG9wOkxheWVyTmFtZT0iRkFMTFdJTkdTIiBwaG90b3Nob3A6TGF5ZXJUZXh0PSJGQUxMV0lOR1MiLz4gPHJkZjpsaSBwaG90b3Nob3A6TGF5ZXJOYW1lPSLmmbrog73mj5LmjpIiIHBob3Rvc2hvcDpMYXllclRleHQ9IuaZuuiDveaPkuaOkiIvPiA8L3JkZjpCYWc+IDwvcGhvdG9zaG9wOlRleHRMYXllcnM+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+pcCa2gAABmZJREFUaIHtmsFx2zgUhj/t7H25FUSuwHQFpiqwQ17JsXQgr2tVIKkCO1fxYHnEqxhtBaErMFNBmArCrcB7wIMIwZQsW0p2k9E/wyEBPAAPwI/3HiB1np6eOOKIQ+G3/1qBI34t/L5vA51O5xB6/DLww7gLdCVZ5VlavUK+XMyn9ffR7Mego11eECWfAG+b8GI+fcaeIEoeAReogZM8S2tbxg9j3XaRZ2lvWx9+GGsfPMmzdLxB5g7oA3WepX9aZd8AR5LLPEvfG2Uu8CjJAXBn9uWH8RgYSd4wz9Jbq+1VeZ6lHausL2VdS91K2lpa8p70b8sXwHAxn5b8hNjL5QVR4qLIBGoRL/fSZnd81n0KSYAVYRxDzrPqucZ38UIfI7EeL0II3kYOJO+jEE7Lu8CnDfIe8CmIkp36/r+hjVAl0Nvw2Liy0n8dUrktKIxv1/j2LLk1wgHn8n7RFaGIefOSImK1+oZeZ3mWdsSCDVCWG+DOIKiepxroLebTjlj/odH3j5rLg6IthqoX82mxY/2+vEvUwrp+GHd3WKy9kGdp6YdxjZr4c2AmRZowWh9QJCuNb3jZOmlc+mHs5Vm6TV4v/DN3nmfpzA9jaFyri3KBXUlX5lwv5tPbIEpOabdcAARRMgZmi/m0gs0xrFjEIs/SSojs5Vk6s2Se5YsrdgDXDDn8MB7rtMggeq6N4c1BeRAllzTuZYAy4Q5qgoetlQ6LEkUQz8jT34W8XRTJbv0wdmgW6mGH9mvUeO78MD7bEBt6NHPwoa0RIVWZZ2nZorsbRMkXqVss5tNyMZ8ONikURMk1Kk47D6IE4N4PY9NLDGWzuSgSD/wwrqTsSsg9Anqy6buSXwBfjHYK4MEyDiNgLN+evM+BialjG6FcCdBt2IGiHkgpg5gB16g46kcQ6gE1sK6QxaVZXE0Yl2bw+g27WagB8BE16dc0k2li1aYddJuwyARqEfoofbuIaw2ipAaWwERbII0gShzUos6k7gRFeg8VjtygXLyDItMMOJX8ichVqANIJZvhSvrX7SF96PnzhGx9WLn3c6lzLzI3QZTUi/m0B+0xlEOz883HsQZ3Kcl76931w1iXfU8UxrfHc8LoSdFxlCvpXeInTRDdx8iKxV6EH8ZPLc9Y2q6BExpXreGgFu9RPICJLuuu/FwexCXXRhu1yP+DIuiF1L0HLrQeqMNNjSLarpiwPvf3GFaqjVCVCNiP2Wnf+K4N019L3sUrFHwTrLhmNbmouKFmfdCXZvkrujHdz9YAXSzDzsiztM6zdCDB+HvglmaOHZq4CwDxDlqfEkWsr9L3E7KhZLOUIqetyUDa9lAkmsn8ldJXhbJmp1LvD6lb5llaGbHUUtroGqqdYmzmNpdXLebTcUu+CdNv37WU9/0wHrbFHQdGiRwGaAb1AGrB/DDW5ed2+S4Q1zBBuQGP9jsjfW/loSZcwwzQVyGE4Z49lIWqFvPpUuoOJegeAU4QJZ51QNLt3NNsIm0dZobldVEk+UpzN+ZIfyOUEegbutdAN8/SMz+Mn/IsHYoVcyRw1wePG1Q4887Q6TPGJn31PZR197QN/de2/QYU8vZa8jaVl6/pQHZnJcmuVVbQWOWRXaYfq0kHRYwR7VcDG/VbzKcnokuNItIH1BgvbN1a4KIudbW+JYqYlcR4rr5Uti54QSwhypI6LW2v8t5yyjOt05+2FfLDWN+cX6HM+FrHxpHThh3bvNsiW0q/D6iAeQVrAe3yuiVA3gX6FNuGCWrnuvKLwFD3IbHkGmnE6pWoOboOouQr6hqgDqLEY91qbNL1ivWwotsi07fSlVggB3DkIOWwHir0xEKN5USoXeitH8Y30o+2eDpm1roU8Labcq3ocsPvTvr47LYEsi5qYdqeviXb3yKr2y2tOoWZaDl5FbwBQtLZhrJbo8wDHnUQjjolelJW07hE8xR8A3wLouSJ9bF92PN3vR5wZqQdsTwfaX4FMI2DZ1ioJwwLpTd2nqWl3LXdG/WG+oQHrySUdff09waxpfFt36QfFLJ7KiOrTafC+N45fmrBkMZd2HoMaAJfGxXKip1oyyUE7dFugSrUIo036FGiNq15YFpaupWSvkR5CV0H1BwMZe4cmhjsVt/wG7f8jpRdsb6hKnlKLOvY2ff/UMd/G6xjz38b1D/rj8IaexPqiCNMHP9gd8RB8S+/i9YKZ2PF6gAAAABJRU5ErkJggg==" class="dark-logo">
+                            <img src="" class="light-logo">
+                        </span>
+                </a>
+                <a class="topbartoggler d-block waves-effect waves-light" href="javascript:void(0)" data-toggle="modal"
+                   data-target="#setting-modal"><i class="mdi mdi-dots-horizontal font-20"></i></a>
+
+            </div>
+            <!-- End Logo -->
+            <div class="navbar-collapse collapse show" id="navbarSupportedContent" data-navbarbg="skin6">
+                <ul class="navbar-nav mr-auto float-left">
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark text-info" href="javascript:;"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="mdi mdi-wifi"></i>&nbsp;<span class="ip"></span></a></li>
+                </ul>
+                <ul class="navbar-nav float-right iid">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark text-info" href="javascript:;"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="mdi mdi-lan"></i>&nbsp;<span class="i-name"></span>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+
+
+        </nav>
+    </header>
+    <div class="page-wrapper" style="display: block;padding-top: 111px;">
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--<div class="card-group">
+                        
+                        <div class="card2 bg-danger" onclick="openMinMax('qiwen')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-8"><i class="mdi mdi-settings"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white"></h6></div>
+                            </div>
+                        </div>
+                        <div class="card state" id="qiwen_state" onclick="changeAuto(this,'qiwen')">
+                            <div class="card-body text-center text-white" >
+                                <span class="display-7"><i class="mdi mdi-weather-windy"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">气温 : <span id="qiwen_t"></span> °C</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card control" id="qiwen_control">
+                            <div class="card-body text-center text-white">
+                                <span class="display-7"><i class="mdi mdi-power"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">电源 : <span>已关闭</span></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> -->
+					<div class="card-group">
+                        <!-- Column -->
+                        <div class="card2 bg-purple" onclick="openMinMax('shuiwen')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-8"><i class="mdi mdi-settings"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white"></h6></div>
+                            </div>
+                        </div>
+                        <div class="card state" id="shuiwen_state"onclick="changeAuto(this,'shuiwen')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-7"><i class="mdi mdi-oil-temperature"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">温度 : <span id="shuiwen_t"></span> °C</h6>
+                                </div>
+                            </div>
+                        </div><!-- Column --><!-- Column -->
+                        <div class="card control" id="shuiwen_control">
+                            <div class="card-body text-center text-white">
+                                <span class="display-7"><i class="mdi mdi-power"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">插座1 : <span>已关闭</span></h6>
+                                </div>
+                            </div>
+                        </div><!-- Column -->
+
+                    </div>
+					<div class="card-group">
+                        <div class="card control" id="qiwen_control" onclick="changeState(this,'weishi')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-6"><i class="mdi mdi-power"></i></span>
+                                <div class="mt-3"><h5 class="font-weight-light text-white">插座2 : <span>已打开</span></h5></div>
+                            </div>
+                        </div><!-- Column -->
+
+                    </div>
+                    <div class="card-group">
+                        <!-- Column -->
+                        <div class="card2 bg-warning" onclick="openMinMax('guangzhao')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-8"><i class="mdi mdi-settings"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white"></h6></div>
+                            </div>
+                        </div>
+                        <div class="card state" id="guangzhao_state"onclick="changeAuto(this,'guangzhao')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-7"><i class="mdi mdi-lightbulb-on-outline"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">光照 : <span id="guangzhao_t"></span> Lux</h6>
+                                </div>
+                            </div>
+                        </div><!-- Column --><!-- Column -->
+                        <div class="card control" id="guangzhao_control">
+                            <div class="card-body text-center text-white">
+                                <span class="display-7"><i class="mdi mdi-power"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">插座3 : <span>已关闭</span></h6>
+                                </div>
+                            </div>
+                        </div><!-- Column -->
+
+                    </div>
+					<div class="card-group">
+                        <div class="card control" id="weishi_control" onclick="changeState(this,'weishi')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-6"><i class="mdi mdi-power"></i></span>
+                                <div class="mt-3"><h5 class="font-weight-light text-white">插座4 : <span>已打开</span></h5></div>
+                            </div>
+                        </div><!-- Column -->
+
+                    </div>
+                    <div class="card-group">
+                        <div class="card2 bg-info" onclick="openMinMax('shidu')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-8"><i class="mdi mdi-settings"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white"></h6></div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <div class="card state"id="shidu_state"onclick="changeAuto(this,'shidu')">
+                            <div class="card-body text-center text-white">
+                                <span class="display-7"><i class="mdi mdi-chart-bubble"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">湿度 : <span id="shidu_t"></span> %</h6>
+                                </div>
+                            </div>
+                        </div><!-- Column --><!-- Column -->
+                        <div class="card control" onclick=""id="shidu_control">
+                            <div class="card-body text-center text-white" >
+                                <span class="display-7"><i class="mdi mdi-power"></i></span>
+                                <div class="mt-3"><h6 class="font-weight-light text-white">插座5 : <span>已关闭</span></h6>
+                                </div>
+                            </div>
+                        </div><!-- Column -->
+
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------------------------------------------------------------------->
+<footer class="footer">Copyright © 2020 By Fallwings All Rights Reserved.</footer>
+<!------------------------------------------------------------------->
+
+<div id="setting-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm modal-right" style="width: 100%;">
+        <div class="modal-content"style="height: 100%;">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                <div class="customizer-body ps-container ps-theme-default"
+                     data-ps-id="9c967872-c6bb-9698-a6ba-29534ac1cf91">
+                    <ul class="nav customizer-tab" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                                href="#pills-home" role="tab" aria-controls="pills-home"
+                                                aria-selected="true"><i
+                                class="mdi mdi-wifi font-20"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#chat"
+                                                role="tab" aria-controls="chat" aria-selected="false"><i
+                                class="mdi mdi-cloud-upload font-20"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" id="pills-contact-tab" data-toggle="pill"
+                                                href="#pills-contact"
+                                                role="tab" aria-controls="pills-contact" aria-selected="false"><i
+                                class="mdi mdi-star-circle font-20"></i></a></li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <!-- Tab 1 -->
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <form id="wifiForm" class="pl-3 pr-3">
+                                <div class="form-group">
+                                    <label for="ssid">SSID</label>
+                                    <input class="form-control" type="text" id="ssid"  name="ssid" required="" placeholder="SSID">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">WIFI密码</label>
+                                    <input class="form-control" type="text" name="password" required="" id="password" placeholder="wifi密码">
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button class="btn btn-rounded btn-primary" type="button" onclick="setWifi()">连接</button>
+                                </div>
+                            </form>
+
+                        </div>
+                        <!-- End Tab 1 -->
+                        <!-- Tab 2 -->
+                        <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="pills-profile-tab">
+							<form id="uploadForm" class="mt-4" method='post' action='#' enctype='multipart/form-data' style="margin-top:20px;">
+								<div class="input-group">
+									<div class="custom-file">
+										<input type="file" name="update" class="custom-file-input" id="inputGroupFile04" multiple="multiple">
+										<label class="custom-file-label" for="inputGroupFile04">选择文件</label>
+									</div>
+									<div class="input-group-append">
+										<button id="uploadbtn" class="btn btn-outline-secondary" type="submit">上传</button>
+									</div>
+								</div>
+							</form>
+							<div class="filelist">
+								
+							</div>
+							
+                        </div>
+                        <!-- End Tab 2 -->
+                        <!-- Tab 3 -->
+                        <div class="tab-pane fade p-3" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+
+                        </div>
+                        <!-- End Tab 3 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div id="minmax-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <a href="index.html" class="text-success">
+											<span>
+												<img class="mr-2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF62lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMC0wMi0xOFQxMDozNToyMSswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjAtMDgtMjBUMTc6MTk6MjArMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjAtMDgtMjBUMTc6MTk6MjArMDg6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzEwZGI4NGItM2FiMi0wZDRlLWE3NjUtZGJhZjJjNmFhN2IyIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTljNjZiYzctZDRkOS1hZDQxLThlMTItNjI1N2E5NjQyMzcxIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6ZWVjNGI1YTEtMjRlZi02ZjRlLTk4YzQtODg4ZTQyZTJhNmZiIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDplZWM0YjVhMS0yNGVmLTZmNGUtOThjNC04ODhlNDJlMmE2ZmIiIHN0RXZ0OndoZW49IjIwMjAtMDItMThUMTA6MzU6MjErMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjMxMGRiODRiLTNhYjItMGQ0ZS1hNzY1LWRiYWYyYzZhYTdiMiIgc3RFdnQ6d2hlbj0iMjAyMC0wOC0yMFQxNzoxOToyMCswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz49odDTAAANUUlEQVRYhX1YeYxd1X3+zrnn7ve+bd5s783usWfswQsYYxYbDGmBkhKi0ISqpVLtklRApZCmi9KqjVqqtipR1KQtbQOlpiGAVOTSsNTs2LhewBh78OAZz9izL377fcvdl/7xPIOtJP1JT3pXejrvO7/z/b7vO5fk83l88MEHqFarEAQBV5YoCKiZzsPj58bOVSul9yNCIUsS0uk0ACCZTMBxXABAEAQQBAFtbW0ghMD3fRiGgc7OTsRjMbx/6BAWFhbQ1dWFbdu2AQAYYzBNE7Isg4ZhCJ7n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" alt="" height="18">
+												<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAAATCAYAAAB2iSS0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAGx2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTBDQUZCRTYzQTE5MTFFN0EzQ0JGMjJBQkFCQkQyODEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OGJiMWVjZjUtOThmMi0yZjQ0LTk2MmYtNGJjMzczOGUzMGUxIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OTBDQUZCRTYzQTE5MTFFN0EzQ0JGMjJBQkFCQkQyODEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMC0wOC0yMFQxNDoyMDozMyswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjAtMDgtMjFUMDk6MDg6NDYrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjAtMDgtMjFUMDk6MDg6NDYrMDg6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDMTBDOTIyQjA4QTkxMUU3OUExREUwQzlGN0IwNjYwNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDMTBDOTIyQzA4QTkxMUU3OUExREUwQzlGN0IwNjYwNiIvPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo4YmIxZWNmNS05OGYyLTJmNDQtOTYyZi00YmMzNzM4ZTMwZTEiIHN0RXZ0OndoZW49IjIwMjAtMDgtMjFUMDk6MDg6NDYrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDxwaG90b3Nob3A6VGV4dExheWVycz4gPHJkZjpCYWc+IDxyZGY6bGkgcGhvdG9zaG9wOkxheWVyTmFtZT0iRkFMTFdJTkdTIiBwaG90b3Nob3A6TGF5ZXJUZXh0PSJGQUxMV0lOR1MiLz4gPHJkZjpsaSBwaG90b3Nob3A6TGF5ZXJOYW1lPSLmmbrog73mj5LmjpIiIHBob3Rvc2hvcDpMYXllclRleHQ9IuaZuuiDveaPkuaOkiIvPiA8L3JkZjpCYWc+IDwvcGhvdG9zaG9wOlRleHRMYXllcnM+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+pcCa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" alt="" height="18">
+											</span>
+                    </a>
+                </div>
+                <form id="addForm" class="pl-3 pr-3">
+                    <div class="form-group">
+                        <label class="text-danger" for="slider" style="font-size:16px;">设置监控范围</label>
+                        <div id="slider" style="margin-top:40px;"></div>
+                    </div>
+                    <div class="form-group text-center" style="margin-top:80px;">
+                        <button class="btn btn-rounded btn-primary" type="button" onclick="setMinMax()">设置</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="chat-windows hide-chat"></div>
+<script src="jquery.js"></script>
+
+<div class="jvectormap-tip"></div>
+<script>
+var uploadList=new Array();
+    var slider = document.getElementById('slider');
+    noUiSlider.create(slider, {
+        start: [0, 100],
+        connect: true,
+        range: {
+            'min': [0],
+            'max': [100]
+        },
+        tooltips: true,
+        pips: {
+            mode: 'range',
+            stepped: true,
+            density: 3
+        }
+    });
+    function WebsocketInit(){
+        if ("WebSocket" in window) {
+            ws = new WebSocket("ws://"+ip+":80"+path+"/websocket/socketServer?isuser=1&deviceid="+deviceid);
+            //ws = new WebSocket("ws://www.fallwings.top/aigs/websocket/socketServer?isuser=1&deviceid=10");
+            ws.onopen = function () {
+                // Web Socket 已连接上，使用 send() 方法发送数据
+
+            };
+            ws.onconnect=function(){
+
+            };
+
+            ws.onmessage = function (evt) {
+
+                var data = evt.data;
+                data=eval("("+data+")");
+                console.log(data)
+                //data = JSON.parse(data);
+                var type = data["type"];
+                if(type=="getData"){
+                    getData(data);
+                }else if(type=="getMinMax"){
+                    getMinMax(data);
+
+                }
+
+            };
+
+            ws.onclose = function () {
+                // 关闭 websocket
+                //alert("连接已关闭...");
+                WebsocketInit();
+            };
+        }else {
+            // 浏览器不支持 WebSocket
+            alert("您的浏览器不支持 WebSocket!");
+        }
+    }
+    function getState(id,control_value,control_id,auto_value){
+        if(auto_value=="0"){
+            $(id).removeClass("on");
+            $(id).attr("data","0");
+            $("#"+control_id+"_control").attr("onclick","changeState(this,'"+control_id+"')");
+        }else if(auto_value=="1"){
+            $(id).addClass("on");
+            $(id).attr("data","1");
+            $("#"+control_id+"_control").attr("onclick","");
+        }
+        if(control_value=="1"){
+            $("#"+control_id+"_control").addClass("on");
+            $("#"+control_id+"_control").attr("data","1");
+            $("#"+control_id+"_control h6 span").text("已打开");
+            $("#"+control_id+"_control h5 span").text("已打开");
+        }else{
+            $("#"+control_id+"_control").removeClass("on");
+            $("#"+control_id+"_control").attr("data","0");
+            $("#"+control_id+"_control h6 span").text("已关闭");
+            $("#"+control_id+"_control h5 span").text("已关闭");
+        }
+    }
+    function changeState(_this,id){
+        var control_state=$(_this).attr("data");
+        var changeData=control_state=="0"?"1":"0";
+        if(changeData=="1"){
+            $(_this).addClass("on");
+            $(_this).attr("data","1");
+        }else{
+            $(_this).removeClass("on");
+            $(_this).attr("data","0");
+        }
+        $.ajax({
+			url:"changeState",
+			type:"post",
+			data:{type:id,state:changeData},
+			success:function(){
+				
+			}
+		})
+    }
+    function getData(json){
+		$.ajax({
+			url:"getData",
+			type:"get",
+			success:function(dataString){
+				var json=eval('(' + dataString + ')');
+				$(".ip").text(json.ip);
+				$(".i-name").text(json.mac);
+				$("#qiwen_t").text(json.qiwen);
+				$("#guangzhao_t").text(json.guangzhao);
+				$("#shidu_t").text(json.shidu);
+				$("#shuiwen_t").text(json.shiuwen);
+				getState("#qiwen_state",json.qiwenState,"qiwen",json.qiwenAuto);
+				getState("#shidu_state",json.shiduState,"shidu",json.shiduAuto);
+				getState("#guangzhao_state",json.guangzhaoState,"guangzhao",json.guangzhaoAuto);
+				getState("#shuiwen_state",json.shuiwenState,"shuiwen",json.shuiwenAuto);
+				getState("#weishi_state",json.weishiState,"weishi",json.weishiAuto);
+				$("#preloader").hide();
+			}
+		})
+
+    }
+setInterval(getData, 2000) ;
+
+    function setMinMax(){
+        var type=$("#minmax-modal").attr("data");
+        var min=slider.noUiSlider.get()[0];
+        var max=slider.noUiSlider.get()[1];
+        $.ajax({
+			url:"setMinMax",
+			type:"post",
+			data:{type:type,min:min,max:max},
+			success:function(dataString){
+				$('#minmax-modal').modal('toggle');
+			},
+			error:function(){
+				alert("Error !");
+			}
+		})
+        
+    };
+    function changeAuto(_this,type){
+        var value;
+        if($(_this).attr("data")=='0'){
+            value="1";
+            $(_this).addClass("on");
+        }else{
+            value="0";
+            $(_this).removeClass("on");
+        }
+        $.ajax({
+			url:"setAuto",
+			type:"post",
+			data:{type:type,auto_value:value},
+			success:function(){
+				
+			}
+		});
+
+    };
+
+    function getMinMax(type){
+	
+		$.ajax({
+			url:"getMinMax",
+			type:"get",
+			data:{type:type},
+			success:function(dataString){
+				var json=eval('(' + dataString + ')');
+				var datatype=json["datatype"];
+				slider.noUiSlider.set([parseFloat(json.min),parseFloat(json.max)]);
+				if(datatype=="shidu"){
+					slider.noUiSlider.updateOptions({range:{"min":0,"max":100}})
+				}else if(datatype=="guangzhao"){
+					slider.noUiSlider.updateOptions({range:{"min":0,"max":1000}})
+				}else{
+					slider.noUiSlider.updateOptions({range:{"min":10,"max":40}})
+				}
+
+				$('#minmax-modal').attr("data",datatype);
+				$('#minmax-modal').modal('toggle');
+				$("#preloader2").hide();
+			}
+		})
+    }
+    function openMinMax(type){
+        $("#preloader2").show();
+        getMinMax(type);
+    }
+    function setWifi(){
+        var ssid=$("#wifiForm input[name='ssid']").val();
+        var password=$("#wifiForm input[name='password']").val();
+        $.ajax({
+			url:"setWIFI",
+			type:"post",
+			data:{ssid:ssid,password:password},
+			success:function(data){
+				var json=eval('(' + data + ')');
+				if(data.state=="0"){
+					alert("连接WIFI失败");
+				}
+			}
+		});
+        $("#wifiForm")[0].reset();
+    }
+    $(document).ready(function(){
+        $("#preloader").show();
+		$("#inputGroupFile04").change(function(){
+			var llist=$(this)[0].files;
+			$(".filelist").empty();
+			uploadList=new Array();
+			var bin=null;
+			$(".custom-file-label").text("选择文件");
+			$.each(llist,function(ii){
+				if(llist[ii].name.search("bin")>0){
+					bin=llist[0];
+				}else{
+					uploadList.push(llist[ii]);
+					$(".filelist").append('<div class="flieitem"><span>'+llist[ii].name+'</span><span class="prg">进度: 0%</span></div>');
+				}
+			});
+			if(bin!=null){
+				uploadList.push(bin);
+				$(".filelist").append('<div class="flieitem"><span>'+bin.name+'</span><span class="prg">进度: 0%</span></div>');
+			}
+			
+		});
+		$("#uploadForm").submit(function(e){
+		  e.preventDefault();
+		  if(uploadList.length>0){
+			var data=new FormData();
+			data.append("update", uploadList[0]);
+		  //var form = $("#uploadForm")[0];
+		  //var data = new FormData(form);
+		  console.log(data)
+			   $.ajax({
+				  url: "/update",
+				  type: "POST",
+				  data: data,
+				  contentType: false,
+				  processData:false,
+				  xhr: function() {
+				  var xhr = new window.XMLHttpRequest();
+				  xhr.upload.addEventListener("progress", function(evt) {
+				  if (evt.lengthComputable) {
+				  var per = evt.loaded / evt.total;
+				  $(".prg").eq(0).html("进度: " + Math.round(per*100) + "%");
+				  }
+				  
+				  }, false);
+				  return xhr;
+				  },
+				  success:function(dat) {
+					  dat= eval('(' + dat + ')')
+					  if(dat.state=="1"||dat.state==1){
+						uploadList.shift();
+						$(".filelist").children().first().remove();
+						if(uploadList.length>0){
+							$("#uploadbtn").trigger("click");
+						}else{
+							$.ajax({
+								url:"restart",
+								type:"get",
+								success:function(dataString){}
+							});
+						}
+					  }else{
+						alert("上传出现错误!");
+					  }
+				 },
+				 error: function (a, b, c) {
+				 }
+				});
+			}
+		 });
+		
+    });
+
+</script>
+</body>
+</html>
